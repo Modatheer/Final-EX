@@ -20,22 +20,4 @@ exports.getBookByISBN = async (req, res) => {
     }
 };
 
-exports.getBooksByAuthor = async (req, res) => {
-    const { author } = req.params;
-    try {
-        const books = await Book.find({ author });
-        res.json(books);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-};
-
-exports.getBooksByTitle = async (req, res) => {
-    const { title } = req.params;
-    try {
-        const books = await Book.find({ title: new RegExp(title, 'i') });
-        res.json(books);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-};
+// Implement other methods as needed
